@@ -12,9 +12,9 @@ class GPXMerge:
     # Use output path if provided
     if kwargs['output']:
       self.out_path = os.path.abspath(kwargs['output'])
-    # Else use "[current_directory]/[input basename]""
+    # Else use "[current_directory]/[input basename]_merged.gpx""
     else:
-      filename = os.path.basename(kwargs['input']) + '.gpx'
+      filename = os.path.basename(kwargs['input']) + '_merged.gpx'
       self.out_path = os.path.abspath(filename)
     self.skip_intveral = int(kwargs['skip_interval'])
     self.tracks = []
