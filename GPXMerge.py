@@ -51,7 +51,7 @@ class GPXMerge:
               track.append(track_segment)
             # Append to tracks the processed track
             self.tracks.append(track)
-  
+
   def to_gpx(self):
     """ Convert a list of tacks into a GPX file """
     gpx = gpxpy.gpx.GPX()
@@ -71,9 +71,9 @@ def main():
     description="Merges all trackpoints in GPX files within a directory and write out merged GPX",
     formatter_class=argparse.RawDescriptionHelpFormatter
   )
-  parser.add_argument('--input', '-i', help='Input directory containing GPX files')
-  parser.add_argument('--output', '-o', help='Output GPX file with merged trackpoints')
-  parser.add_argument('--skip-interval', '-s', default=1, help='The interval in which the trackpoints within are ignored')
+  parser.add_argument('--input', '-i', help='Input directory path containing GPX files to be merged')
+  parser.add_argument('--output', '-o', help='Output path for the merged GPX file. Defaults to be "./[input directory]_merged.gpx"')
+  parser.add_argument('--skip-interval', '-s', default=1, help='The interval in track segment at which the track points are taken')
   args = parser.parse_args()
 
   gpx_merger = GPXMerge(**vars(args))
